@@ -1,0 +1,209 @@
+<!--Script By VovaDos(Youtube: Roman fany 666)-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato|Libre+Barcode+39+Text|Montserrat|Open+Sans|Roboto|Staatliches" rel="stylesheet">
+	</head>
+	<body>
+		<div id='header'>
+			<center>
+			<h1 id='h1-text'>Todo JS.</h1>
+		</center>
+		</div>
+		<div id='container'>
+			<div id='functions'>
+				<a id='rename'>Изменить</a>
+				<a id='deletes'>Удалить</a>
+			</div>
+			<div id='function-two'>
+				<a id='rename-two'>Изменить</a>
+				<a id='deletes-two'>Удалить</a>
+			</div>
+			<div id='function-three'>
+				<a id='rename-three'>Изменить</a>
+				<a id='deletes-three'>Удалить</a>
+			</div>
+			<div id='main-function'>
+			<input id='input'>
+			<a id='button'>Добавить</a>
+		</div>
+	</div>
+	<script src='jquery-2.2.4.min.js'></script>
+	<script>
+		$('document').ready(function(){
+			$('#rename').click(function(){	
+			$('#container').append("<input id='renameinput' autofocus>");
+			$('#container').append("<button id='aa'>Изменить</button>");
+					$('#aa').click(function(){
+						if($('#renameinput').val() == ''){
+							alert('Поле должно быть заполнено!');
+						}
+						else{
+					var text = $('#renameinput').val()
+					$('#this-text').text(text);
+					$('#renameinput').remove();
+					$('#aa').remove();
+				};
+				});
+			});
+			var clicks = 0;
+			$('#button').click(function(){
+				if(clicks == 0){
+				if($('#input').val() == ''){
+					alert('Поле должно быть заполнено');
+					return false;
+				}
+				else{
+				$('#container').append("<div id='objects'><input type='checkbox' id='checkbox'><h2 id='this-text'></h2>");
+				var x = $('#input').val()
+				$('#this-text').append(x);
+				$('#input').val('');
+				$('#deletes').click(function(){
+				var x = confirm('Вы хотите удалить обьект?');
+				if(x == true){
+				$('#this-text').remove();
+				$('#checkbox').remove();
+				$('#deletes').css({'visibility': 'hidden'});
+				$('#rename').css({'visibility': 'hidden'});
+				clicks--;
+				return false;
+			};
+			});
+		};
+				$(function(){ 
+					$( "#checkbox" ).on( "click", function() {             
+						if($(this).is(":checked")){
+							$('#deletes').css({'visibility': 'visible'})
+							$('#rename').css({'visibility': 'visible'});
+				}    
+					else{
+						$('#deletes').css({'visibility': 'hidden'})
+						$('#rename').css({'visibility': 'hidden'});
+						$('#renameinput').remove()
+						$('#aa').remove()
+ 							};
+						});
+					});
+				clicks++
+				}
+				else if(clicks == 1){
+					if($('#input').val() == ''){
+						alert('Поле должно быть заполнено');
+						return false;
+					}
+					else{
+					$('#container').append("<div id='objects-two'><input type='checkbox' id='checkbox-two'><h2 id='this-text-two'></h2>");
+				var x = $('#input').val();
+				$('#this-text-two').append(x);
+				$('#input').val('');
+				$('#deletes-two').click(function(){
+					var x = confirm('Вы хотите удалить обьект?');
+					if(x == true){
+						$('#this-text-two').remove();
+						$('#checkbox-two').remove();
+						$('#rename-two').css({'visibility': 'hidden'});
+						$('#deletes-two').css({'visibility': 'hidden'});
+						clicks--;
+						return false;
+					};
+				});
+			};
+					$(function(){ 
+					$( "#checkbox-two" ).on( "click", function() {             
+						if($(this).is(":checked")){
+							$('#deletes-two').css({'visibility': 'visible'})
+							$('#rename-two').css({'visibility': 'visible'});
+				}    
+					else{
+						$('#deletes-two').css({'visibility': 'hidden'})
+						$('#rename-two').css({'visibility': 'hidden'});
+						$('#aa').remove();
+						$('#renameinput-two').remove();
+ 							};
+						});
+					});
+				$('#rename-two').click(function(){
+					$('#container').append("<input id='renameinput-two' autofocus>");
+					$('#container').append("<button id='aa'>Изменить</button>");
+					$('#aa').click(function(){
+						var x = $('#renameinput-two').val();
+						if($('#renameinput-two').val() == ''){
+							alert('Поле должно быть заполнено');
+						}
+						else{
+						$('#this-text-two').text(x);
+						$('#renameinput-two').remove();
+						$('#aa').remove();
+						};
+					});
+				});
+				clicks++;
+				}
+				else if(clicks == 2){
+				  	if($('#input').val() == ''){
+				  		alert('Поле должно быть заполнено');
+				  		return false;
+				  	}
+				  	else{
+				  		$('#container').append("<div id='objects-three'><input type='checkbox' id='checkbox-three'><h2 id='this-text-three'></h2>");
+				  		var x = $('#input').val();
+				  		$('#this-text-three').append(x);
+				  		$('#input').val('');
+				  		$('#deletes-three').click(function(){
+						var x = confirm('Вы хотите удалить обьект?');
+						if(x == true){
+						$('#this-text-three').remove();
+						$('#checkbox-three').remove();
+						$('#deletes-three').css({'visibility': 'hidden'});
+						$('#rename-three').css({'visibility': 'hidden'});
+						clicks--;
+						return false;
+								};
+							});
+				  	};
+				  	$(function(){ 
+					$( "#checkbox-three" ).on( "click", function() {             
+						if($(this).is(":checked")){
+							$('#deletes-three').css({'visibility': 'visible'})
+							$('#rename-three').css({'visibility': 'visible'});
+							}
+							else{
+								$('#deletes-three').css({'visibility': 'hidden'});
+								$('#rename-three').css({'visibility': 'hidden'});
+								$('#renameinput-three').remove();
+								$('#aa').remove();
+							};
+							$('#rename-three').click(function(){
+								$('#container').append("<input id='renameinput-three' autofocus>");
+								$('#container').append("<button id='aa'>Изменить</button>");
+								$('#aa').click(function(){
+								var x = $('#renameinput-three').val();
+								if(x == ''){
+									alert('Поле должно быть заполнено');
+									return false;
+								}
+								else{
+								$('#this-text-three').text(x);
+								$('#renameinput-three').remove();
+								$('#aa').remove();
+									};
+								});
+							});
+						});
+					});
+					clicks++;
+				}
+				else if(clicks == 3){
+					alert('Возможно сделать только три задачи');
+					return false;
+				};
+			});
+		});
+	</script>
+	</body>
+</html>
+
+<!--Script By VovaDos(Youtube: Roman fany 666)-->
